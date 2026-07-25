@@ -24,23 +24,23 @@ Add a change password endpoint to the authentication system. Verify current pass
 
 ```yaml
 functional:
-  - id: FR-1
-    description: Logged-in user can change their password with a valid new password
-    priority: must-have
-  - id: FR-2
-    description: System verifies the current password is correct before changing it
-    priority: must-have
   - id: FR-3
-    description: New password must have a minimum length of 8 characters
+    description: Logged-in user can change their password
     priority: must-have
   - id: FR-4
-    description: System rejects new password if it matches the current password
+    description: System verifies the current password is correct
     priority: must-have
   - id: FR-5
+    description: New password has a minimum length of 8 characters
+    priority: must-have
+  - id: FR-6
+    description: System rejects new password if it matches the current password
+    priority: must-have
+  - id: FR-7
     description: System returns clear error messages for failure cases
     priority: must-have
 non_functional:
-  - id: NFR-1
+  - id: NFR-2
     description: Change password endpoint responds within 500ms at p95
     priority: should-have
 ```
@@ -60,12 +60,12 @@ data_model_changes: []
 
 ## Acceptance Criteria
 
-- [ ] AC-1: Logged-in user can change their password with a valid new password
-- [ ] AC-2: System verifies the current password is correct before changing it
-- [ ] AC-3: New password must have a minimum length of 8 characters
-- [ ] AC-4: System rejects new password if it matches the current password
-- [ ] AC-5: System returns clear error messages for failure cases
-- [ ] AC-6: Response time is under 500ms at p95
+- [ ] AC-4: Logged-in user can change their password with valid credentials and a new password meeting requirements
+- [ ] AC-5: System returns an error if the current password is incorrect
+- [ ] AC-6: System returns an error if the new password has less than 8 characters
+- [ ] AC-7: System returns an error if the new password matches the current password
+- [ ] AC-8: System returns clear error messages for each failure case
+- [ ] AC-9: Response time is under 500ms at p95
 
 ---
 
@@ -87,23 +87,23 @@ Add a change password endpoint to the authentication system. Verify current pass
 
 <requirements>
 functional:
-  - id: FR-1
-    description: Logged-in user can change their password with a valid new password
-    priority: must-have
-  - id: FR-2
-    description: System verifies the current password is correct before changing it
-    priority: must-have
   - id: FR-3
-    description: New password must have a minimum length of 8 characters
+    description: Logged-in user can change their password
     priority: must-have
   - id: FR-4
-    description: System rejects new password if it matches the current password
+    description: System verifies the current password is correct
     priority: must-have
   - id: FR-5
+    description: New password has a minimum length of 8 characters
+    priority: must-have
+  - id: FR-6
+    description: System rejects new password if it matches the current password
+    priority: must-have
+  - id: FR-7
     description: System returns clear error messages for failure cases
     priority: must-have
 non_functional:
-  - id: NFR-1
+  - id: NFR-2
     description: Change password endpoint responds within 500ms at p95
     priority: should-have
 </requirements>
@@ -120,12 +120,12 @@ data_model_changes: []
 </technical_design>
 
 <acceptance_criteria>
-- [ ] AC-1: Logged-in user can change their password with a valid new password
-- [ ] AC-2: System verifies the current password is correct before changing it
-- [ ] AC-3: New password must have a minimum length of 8 characters
-- [ ] AC-4: System rejects new password if it matches the current password
-- [ ] AC-5: System returns clear error messages for failure cases
-- [ ] AC-6: Response time is under 500ms at p95
+- [ ] AC-4: Logged-in user can change their password with valid credentials and a new password meeting requirements
+- [ ] AC-5: System returns an error if the current password is incorrect
+- [ ] AC-6: System returns an error if the new password has less than 8 characters
+- [ ] AC-7: System returns an error if the new password matches the current password
+- [ ] AC-8: System returns clear error messages for each failure case
+- [ ] AC-9: Response time is under 500ms at p95
 </acceptance_criteria>
 ```
 
