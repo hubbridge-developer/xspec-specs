@@ -17,7 +17,7 @@
 ## Summary
 
 ```yaml
-Add a health-check endpoint at `/api/accounts/health` that returns HTTP 200 with JSON `{"status": "ok"}`.
+Add a new health-check endpoint to the accounts service that returns a simple "ok" status.
 ```
 
 ## Requirements
@@ -25,7 +25,7 @@ Add a health-check endpoint at `/api/accounts/health` that returns HTTP 200 with
 ```yaml
 functional:
   - id: FR-1
-    description: The system must expose a GET endpoint at `/api/accounts/health`.
+    description: A new HTTP GET endpoint must be available at `/api/accounts/health`.
     priority: must-have
   - id: FR-2
     description: The endpoint must return an HTTP 200 OK status code.
@@ -35,10 +35,10 @@ functional:
     priority: must-have
 non_functional:
   - id: NFR-1
-    description: The health-check endpoint should respond quickly, ideally within 50ms.
-    priority: should-have
+    description: The endpoint must respond within 50ms at p99.
+    priority: must-have
   - id: NFR-2
-    description: The health-check endpoint should not require authentication.
+    description: The endpoint must not require authentication.
     priority: must-have
 ```
 
@@ -51,9 +51,9 @@ affected_components:
 api_changes:
   - method: GET
     path: /api/accounts/health
-    description: Returns the health status of the accounts service.
+    description: Health check endpoint for the accounts service.
     response:
-      status: 200
+      status: 200 OK
       body:
         application/json:
           status: ok
@@ -62,10 +62,10 @@ data_model_changes: []
 
 ## Acceptance Criteria
 
-- [ ] AC-1: A GET request to `/api/accounts/health` returns an HTTP 200 status code.
+- [ ] AC-1: Sending a GET request to `/api/accounts/health` returns an HTTP 200 status code.
 - [ ] AC-2: The response body for `/api/accounts/health` is `{"status": "ok"}`.
-- [ ] AC-3: The health-check endpoint is accessible without authentication.
-- [ ] AC-4: The health-check endpoint responds within 50ms.
+- [ ] AC-3: The endpoint responds within 50ms at p99.
+- [ ] AC-4: The endpoint is accessible without any authentication.
 
 ---
 
@@ -82,13 +82,13 @@ status: draft
 </spec_header>
 
 <summary>
-Add a health-check endpoint at `/api/accounts/health` that returns HTTP 200 with JSON `{"status": "ok"}`.
+Add a new health-check endpoint to the accounts service that returns a simple "ok" status.
 </summary>
 
 <requirements>
 functional:
   - id: FR-1
-    description: The system must expose a GET endpoint at `/api/accounts/health`.
+    description: A new HTTP GET endpoint must be available at `/api/accounts/health`.
     priority: must-have
   - id: FR-2
     description: The endpoint must return an HTTP 200 OK status code.
@@ -98,10 +98,10 @@ functional:
     priority: must-have
 non_functional:
   - id: NFR-1
-    description: The health-check endpoint should respond quickly, ideally within 50ms.
-    priority: should-have
+    description: The endpoint must respond within 50ms at p99.
+    priority: must-have
   - id: NFR-2
-    description: The health-check endpoint should not require authentication.
+    description: The endpoint must not require authentication.
     priority: must-have
 </requirements>
 
@@ -112,9 +112,9 @@ affected_components:
 api_changes:
   - method: GET
     path: /api/accounts/health
-    description: Returns the health status of the accounts service.
+    description: Health check endpoint for the accounts service.
     response:
-      status: 200
+      status: 200 OK
       body:
         application/json:
           status: ok
@@ -122,10 +122,10 @@ data_model_changes: []
 </technical_design>
 
 <acceptance_criteria>
-- [ ] AC-1: A GET request to `/api/accounts/health` returns an HTTP 200 status code.
+- [ ] AC-1: Sending a GET request to `/api/accounts/health` returns an HTTP 200 status code.
 - [ ] AC-2: The response body for `/api/accounts/health` is `{"status": "ok"}`.
-- [ ] AC-3: The health-check endpoint is accessible without authentication.
-- [ ] AC-4: The health-check endpoint responds within 50ms.
+- [ ] AC-3: The endpoint responds within 50ms at p99.
+- [ ] AC-4: The endpoint is accessible without any authentication.
 </acceptance_criteria>
 ```
 
